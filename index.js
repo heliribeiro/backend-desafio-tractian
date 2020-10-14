@@ -37,6 +37,6 @@ app.use('/user',userRouter)
 app.use('/empresa',empresaRouter)
 app.use('/ativo', ativoRouter)
 
-app.listen(port, ()=>{
+app.listen(process.env.PORT || port, ()=>{
 	console.log('Servidor iniciado!')
 })
