@@ -1,3 +1,4 @@
+import 'dotenv/config.js';
 import express from 'express'
 import bodyParser from 'body-parser'
 import cors from 'cors'
@@ -6,13 +7,12 @@ import userRouter from './routes/userRouter.js'
 import empresaRouter from './routes/empresaRouter.js'
 import ativoRouter from './routes/ativoRouter.js'
 
-const uri = 'mongodb+srv://tractianAdmin:tractian2020@cluster0.8ypaq.mongodb.net/desafioTractian?retryWrites=true&w=majority'
 const port = 4000;
 
 (async()=>{
 	try {
 		await mongoose
-		.connect(uri,
+		.connect(process.env.MONGO_URL,
 		{
 		  useNewUrlParser: true,
 		  useUnifiedTopology: true,
